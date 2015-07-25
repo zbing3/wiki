@@ -1,3 +1,2 @@
-linux
-
+[linux](/linux)
 [python](/python)
