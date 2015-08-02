@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>opslinux wiki</title><link href="no/" rel="alternate"></link><link href="no/feeds/sui-bi.atom.xml" rel="self"></link><id>no/</id><updated>2014-09-02T20:10:14+02:00</updated><entry><title>谈工作谈技术谈视频</title><link href="no/talk_work_technology_video.html" rel="alternate"></link><updated>2014-09-02T20:10:14+02:00</updated><author><name>创e</name></author><id>tag:,2014-09-02:no/talk_work_technology_video.html</id><summary type="html">&lt;p&gt;今天，谈谈工作，谈谈技术，谈谈理想，谈谈人生&lt;/p&gt;
+&lt;div class="section" id="id2"&gt;
+&lt;h2&gt;工作&lt;/h2&gt;
+&lt;p&gt;最近，又换了份工作，其实本来是不想走的，但是由于自己太浮躁，换了部门，导致自己没活干，天天混日子也不是我的性格，所以最终确定还是找个靠谱的python业务开发。离职当天，我就高烧39°，战胜病魔后，我痛定思痛，总结了很多，在这里跟大家分享一下。&lt;/p&gt;
+&lt;p&gt;首先，自己好胜心太强，以至于太急躁，没活干的时候总是胡思乱想，导致了自己换部门，以后在没活干的时候正好是自己积累和学习的过程是个很难得的机会，要好好把握。所以不管干什么要谋定而后动。&lt;/p&gt;
+&lt;p&gt;其次，要找到自己工作的目标，有了目标就不会胡乱去想。&lt;/p&gt;
+&lt;p&gt;最后，把目标转化成自己要学的技术，比如我要学的技术就是linux和c，相关的书籍《unix环境编程》《unix网络编程》《unix编程艺术》《c语言程序设计》&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="python"&gt;
+&lt;h2&gt;关于python开发实践视频&lt;/h2&gt;
+&lt;p&gt;1 初识Python:人人都爱列表&lt;/p&gt;
+&lt;p&gt;2 共享你的代码：函数模块&lt;/p&gt;
+&lt;p&gt;3 文件与异常：处理错误&lt;/p&gt;
+&lt;p&gt;4 持久存储：数据保存到文件&lt;/p&gt;
+&lt;p&gt;5 推导数据：处理数据！&lt;/p&gt;
+&lt;p&gt;6 定制数据对象：打包代码与数据&lt;/p&gt;
+&lt;p&gt;6课，一共12课时，我答应大家的一定会去录制，最近灿哥正好组织培训分享，我也会加入进去。2个多月没更新视频，一是自己这段时间总是在考虑工作的事，二是在想用什么更好的方式传播分享知识，其实文字是最好的方式，但是文字有时候又不太好表达，自己的文字功底还没练到家。所以我也会尝试的去做一做，基础课程录制完成，稍微的写下gitbook。当做日后实战的教材也好。基础的课程我就不在写太多文字的东西了，因为我是以head first python 为基础录制的，希望大家可以支持他们一下。&lt;/p&gt;
+&lt;p&gt;这几年一直在琢磨培训学习的事，也是业余培训讲师，随着年岁的增长如果自己发现了更好的学习方法和方式，也会再跟大家分享，弄不好会自己写一本编程的基础书籍。&lt;/p&gt;
+&lt;/div&gt;
+</summary><category term="随笔"></category></entry><entry><title>helloworld</title><link href="no/helloworld.html" rel="alternate"></link><updated>2013-07-12T00:00:00+02:00</updated><author><name>ce</name></author><id>tag:,2013-07-12:no/helloworld.html</id><summary type="html">&lt;p&gt;总想找个地方写博客，分享下自己所学的东西，原来因为种种原因一直没坚持下来，这次用了github和pelican搭建了个静态博客，使用git上传真的很爽，就是markdown这玩应我不是太会用，还的慢慢学学，大家都说他好用，我也不知道到为什么，学着看吧与大家共勉，开源世界的软件，总能给人们带来美好的东西。&lt;/p&gt;</summary><category term="随笔"></category></entry></feed>

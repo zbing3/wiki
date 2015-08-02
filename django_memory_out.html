@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="创e" />
+        <meta name="copyright" content="创e" />
+
+
+<meta name="keywords" content="python, python, " />
+
+<meta property="og:title" content="Django内存溢出 "/>
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/django_memory_out.html" />
+<meta property="og:description" content="" />
+<meta property="og:site_name" content="opslinux wiki" />
+<meta property="og:article:author" content="创e" />
+<meta property="og:article:published_time" content="2014-12-14T21:43:36+01:00" />
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Django内存溢出 ">
+<meta name="twitter:description" content="">
+
+        <title>Django内存溢出  · opslinux wiki
+</title>
+        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="/theme/tipuesearch/tipuesearch.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="/theme/css/elegant.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="/theme/css/custom.css" media="screen">
+        <script src="http://code.jquery.com/jquery.min.js"></script>
+    </head>
+    <body class="tex2jax_ignore">
+        <div id="content-sans-footer">
+        <div class="navbar navbar-static-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="/"><span class=site-name>opslinux wiki</span></a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav pull-right top-menu">
+                            <li ><a href="">Home</a></li>
+                            <li ><a href="/categories.html">Categories</a></li>
+                            <li ><a href="/tags.html">Tags</a></li>
+                            <li ><a href="/archives.html">Archives</a></li>
+                            <li><form class="navbar-search" action="/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row-fluid">
+                <div class="span1"></div>
+                <div class="span10">
+<article>
+<div class="row-fluid">
+    <header class="page-header span10 offset2">
+    <h1><a href="/django_memory_out.html"> Django内存溢出  </a></h1>
+    </header>
+</div>
+
+<div class="row-fluid">
+        <div class="span8 offset2 article-content">
+
+            
+            <p>前两天工作需求，把python脚本从crontab的方式改成守护进程(daemon)，上线后发现，内存飙升，cpu飙高，程序直接死掉，让我伤心欲绝，郁郁寡欢，终日不得眠啊。开始以为是内存溢出用gc调试好久也看不出问题。由于项目使用了Django-ORM，所以开始怀疑是不是因为Django引发的性能问题。</p>
+<p>搜索了一下关于django内存泄露的文章，这片文章 —— <a class="reference external" href="http://www.igigo.net/post/archives/66">Django&quot;内存泄漏&quot;的问题</a>  给我了启示:</p>
+<blockquote>
+<p>文中第一条就提到:Make sure that you set DEBUG to False in settings.py，在DEBUG模式下，所有的SQL查询都会被保存在内存中.我顿时想起，由于我整个项目还在调试阶段，这个DEBUG变量是设置为True的</p>
+<p>DEBUG设置为False后，内存泄漏的问题就不复存在了</p>
+<p>可我整个项目还需要调试，不能就这么简单的关闭DEBUG模式，怎么办? 我一开始想在后台模块import settings后再重新设置DEBUG变量</p>
+</blockquote>
+<p>下面分析一下脚本程序，import了Django的models,并且对数据库的数据做了轮询操作，所以执行大量的sql去读数据库的全部数据，由于线上DEBUG改成了True，所有的SQL查询保存在了内存中，这样导致内存飙高，好吧不得不说为了把脚本弄成守护进程方式，还用了个while True的死循环，虽然改成了while 1，但是心里还是怪怪的。</p>
+<p>找到问题的原因，我就把DEBUG改成False重启一下,果然内存不再飙高，就此搞定。在此记录一下，解决线上问题的一个小思路。</p>
+
+            
+            
+            <hr/>
+        </div>
+        <section>
+        <div class="span2" style="float:right;font-size:0.9em;">
+            <h4>Published</h4>
+            <time pubdate="pubdate" datetime="2014-12-14T21:43:36+01:00">Dec 14, 2014</time>
+            <h4>Category</h4>
+            <a class="category-link" href="/categories.html#python-ref">python</a>
+            <h4>Tags</h4>
+            <ul class="list-of-tags tags-in-article">
+                <li><a href="/tags.html#python-ref">python
+                    <span>22</span>
+</a></li>
+            </ul>
+<h4>Contact</h4>
+    <a href="#" title="My You can add links in your config file Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-you can add links in your config file sidebar-social-links"></i></a>
+    <a href="#" title="My Another social link Profile" class="sidebar-social-links" target="_blank">
+    <i class="fa fa-another social link sidebar-social-links"></i></a>
+        </div>
+        </section>
+</div>
+</div>
+</article>
+                </div>
+                <div class="span1"></div>
+            </div>
+        </div>
+        <div id="push"></div>
+    </div>
+<footer>
+<div id="footer">
+    <ul class="footer-content">
+        <li class="elegant-power">Powered by <a href="http://getpelican.com/" title="Pelican Home Page">Pelican</a>. Theme: <a href="http://oncrashreboot.com/pelican-elegant" title="Theme Elegant Home Page">Elegant</a> by <a href="http://oncrashreboot.com" title="Talha Mansoor Home Page">Talha Mansoor</a></li>
+    </ul>
+</div>
+</footer>            <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+        <script>
+            function validateForm(query)
+            {
+                return (query.length > 0);
+            }
+        </script>
+
+    
+    </body>
+</html>

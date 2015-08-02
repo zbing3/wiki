@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>opslinux wiki</title><link href="no/" rel="alternate"></link><link href="no/feeds/flask.atom.xml" rel="self"></link><id>no/</id><updated>2014-05-16T09:20:36+02:00</updated><entry><title>flask开发实践（一）</title><link href="no/flask_blog.html" rel="alternate"></link><updated>2014-05-16T09:20:36+02:00</updated><author><name>创e</name></author><id>tag:,2014-05-16:no/flask_blog.html</id><summary type="html">&lt;div class="section" id="virtualenv"&gt;
+&lt;h2&gt;使用virtualenv&lt;/h2&gt;
+&lt;p&gt;sudo pip install virtualenv&lt;/p&gt;
+&lt;p&gt;建议大家都使用python2.7以上版本&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id1"&gt;
+&lt;h2&gt;安装flask&lt;/h2&gt;
+&lt;p&gt;pip install flask&lt;/p&gt;
+&lt;/div&gt;
+</summary><category term="flask"></category><category term="blog"></category></entry></feed>
